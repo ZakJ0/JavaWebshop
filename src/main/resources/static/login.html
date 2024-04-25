@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        p {
+            color: #f4f4f4;
+        }
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+            color: #f4f4f4;
+        }
+
+        form {
+            width: 300px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #9d4caf;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #4236af;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>Login Form</title>
+</head>
+
+<body>
+<img src="images/products.webp">
+<h1>Login</h1>
+
+<form method="post" action="/login">
+    <p>Enter username</p>
+    <input type="text" name="username" placeholder="Username" size="20" required="required">
+    <p>Enter password</p>
+    <input type="password" name="password" placeholder="Password" size="20" required="required">
+    <input type="submit" value="Login">
+    <p>Don't have an account? <a href="/register">Register</a></p>
+</form>
+</body>
+</html>

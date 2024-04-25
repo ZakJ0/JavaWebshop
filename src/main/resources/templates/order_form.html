@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+
+    table {
+        width: 80%;
+        margin: 30px auto;
+        border-collapse: collapse;
+        border: 2px solid #ccc;
+        background-color: #fff;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    th {
+        background-color: #ff6f61;
+        color: #fff;
+    }
+
+    form {
+        margin-bottom: 20px;
+        text-align: right;
+    }
+
+    input[type="number"],
+    input[type="text"],
+    button {
+        padding: 12px 20px;
+        border: none;
+        border-radius: 25px;
+        margin: 5px;
+        font-size: 16px;
+        transition: all 0.3s ease;
+    }
+
+    input[type="number"],
+    input[type="text"] {
+        width: 200px;
+    }
+
+    button {
+        background-color: #ff6f61;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #ff524f;
+    }
+
+    a {
+        text-decoration: none;
+        color: #ff6f61;
+        font-weight: bold;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+</style>
+<head>
+    <meta charset="UTF-8 ">
+    <title>Varukorg</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>Product ID</th>
+        <th>Quantity</th>
+        <th>Total Cost</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- iterera genom som for each loop  -->
+    <tr th:each="order : ${basketItems}">
+        <td th:text="${order.getProductId()}">Product id</td>
+        <td th:text="${order.getAmount()}">quantity</td>
+        <td th:text="${order.getCost()}">Total cost</td>
+        <td>
+            <form action="/removeitem" method="post">
+                <input type="hidden" name="input" th:value="${order.getProductId()}">
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+        <td>
+            <form action="/add" method="post">
+                <input type="hidden" name="input" placeholder="Product ID" required="required" th:value="${order.getProductId()}">
+                <button>+</button>
+            </form>
+        </td>
+        <td>
+            <form action="/removeamount" method="post">
+                <input type="hidden" name="input" placeholder="Ange produkt-Id" required="required" th:value="${order.getProductId()}">
+                <button>-</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<a href="search"> <button>Tillbaka till sökruta </button> </a>
+
+<form method="get" action="/orderpage">
+    <button type="submit">Vidare till beställning</button>
+</form>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>produkter</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr th:each="p : ${result}">
+        <td th:text="${p.getProductId()}">Id</td>
+        <td th:text="${p.getCompany()}">Company</td>
+        <td th:text="${p.getCategory()}">Category</td>
+        <td th:text="${p.getName()}">Name</td>
+        <td th:text="${p.getPrice()}">Price</td>
+        <td th:text="${p.getColor()}">Color</td>
+        <td th:text="${p.getSize()}">Size</td>
+        <td th:text="${p.getAvailable()}">Available in inventory</td>
+        <td>
+            <form action="/deleteitemfromdb" method="post">
+                <input name="electronicId" type="hidden" th:value="${p.getProductId()}">
+                <button type="submit">Radera vara</button>
+            </form>
+        </td>
+    </tr>
+    </thead>
+</table>
+<form method="get" action="/admin">
+    <button type="submit">Tillbaka till admin ruta</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" >
+    <title>OrderHistory</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #dddddd;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #dddddd;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<h1>orders</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Order ID</th>
+        <th>Customer ID</th>
+        <th>Total Cost</th>
+        <th>Time</th>
+        <th>Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="order : ${allorderlist}">
+        <td th:text="${order.getOrderId()}">Order id</td>
+        <td th:text="${order.getCustomerId()}">Customer id</td>
+        <td th:text="${order.getTotalCost()}">Total cost</td>
+        <td th:text="${order.getTime()}">Time</td>
+        <td th:text="${order.getStatus()}">Status</td>
+    </tr>
+    </tbody>
+</table>
+<br> <a href="admin.html">tillbaka till admin panel </a>
+</body>
+
+</html>

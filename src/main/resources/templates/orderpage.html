@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    input[type="number"] {
+        padding: 6px;
+        width: 200px;
+        box-sizing: border-box;
+    }
+
+    button[type="submit"] {
+        padding: 8px 20px;
+        background-color: #4c60af;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #4551a0;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Order</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>Product ID</th>
+        <th>Quantity</th>
+        <th>Total Cost</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- iterera genom som for each loop  -->
+    <tr th:each="order : ${basketItems}">
+        <td th:text="${order.getProductId()}">Product id</td>
+        <td th:text="${order.getAmount()}">Quantity</td>
+        <td th:text="${order.getCost()}">Total cost</td>
+    </tr>
+    </tbody>
+</table>
+<a>Totala priset: <span th:text="${price}"></span></a>
+<br>
+<br>
+<form action="/getbasket" method="get">
+    <button type="submit">return</button>
+</form>
+<br>
+<form method="post" action="/addorder">
+    <input type="text" name="username" placeholder="Användarnamn" required="required">
+    <input type="password" name="password" placeholder="Lösenord" required="required">
+    <button type="submit" name="order">Beställ</button>
+</form>
+</body>
+</html>

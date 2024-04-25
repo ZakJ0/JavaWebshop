@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update admin</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+        }
+        form {
+            width: 50%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"], input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        p {
+            text-align: center;
+            margin-top: 20px;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .update-message {
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+<form method="post" action="/update">
+    <p>Result: <span th:text="${update}"></span></p>
+
+    <h1>Update User to Admin</h1>
+    <p>Enter id to turn user to admin</p>
+    <input type="number" name="id" Value="0" required="required">
+    <br>
+    <input type="hidden" name="role" Value="1" required="required">
+
+    <button type="submit">Submit</button>
+
+</form>
+<p> <a href="/admin"> Go back to Admin page </a></p>
+</body>
+</html>

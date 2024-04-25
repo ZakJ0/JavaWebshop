@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .error-message {
+            color: red;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative; /* Added position relative to the container */
+        }
+
+        .links {
+            margin-top: 20px;
+        }
+
+        .links a {
+            display: block;
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: #333;
+            padding: 8px;
+            border-radius: 4px;
+            background-color: #f0f0f0;
+        }
+
+        .links a:hover {
+            background-color: #e0e0e0;
+        }
+
+        /* Updated style for logout button */
+        .logout-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Admin Panel</h1>
+
+    <div class="links">
+        <p><a href="/products.html">Go to Website</a></p>
+        <p><a href="/reg">Register a New Admin</a></p>
+        <p><a href="/update">Update Admin</a></p>
+        <p><a href="/users">Show all Users</a></p>
+        <p><a href="/showallorders"> show all orders</a></p>
+        <p><a href="/showallpendingorders">Change order status</a></p>
+    </div>
+    <form method="post" action="/addproduct">
+        <a>Lägg till produkt:</a>
+        <br>
+        <input name="company" type="text" placeholder="Company" required="required">
+        <br>
+        <a>Accesories, Computer, Phone, TV, Videogame</a>
+        <br>
+        <input name="category" type="text" placeholder="Category" required="required">
+        <br>
+        <input name="name" type="text" placeholder="Name" required="required">
+        <br>
+        <input name="price" type="number" placeholder="Cost" required="required">
+        <br>
+        <input name="color" type="text" placeholder="Color" required="required">
+        <br>
+        <input name="size" type="text" placeholder="Size" required="required">
+        <br>
+        <input name="available" type="number" placeholder="available" required="required">
+        <br>
+        <button type="submit">Lägg till produkt</button>
+    </form>
+    <br>
+    <form method="get" action="/all">
+        <button type="submit">Visa alla produkter</button>
+    </form>
+    <form action="/logout" method="post">
+        <button type="submit">Logout</button>
+    </form>
+
+</div>
+</body>
+</html>
