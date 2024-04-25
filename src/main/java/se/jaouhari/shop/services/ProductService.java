@@ -35,7 +35,7 @@ public class ProductService {
         return productRepository.findAll();
     }
 
-    public String addElectronicToDatabase(String company, String category, String name, int price, String color, String size, int available) {
+    public String addProductToDatabase(String company, String category, String name, int price, String color, String size, int available) {
         Product product = new Product();
 
         product.setCompany(company);

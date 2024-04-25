@@ -61,7 +61,7 @@ public class ProductController {
                               @RequestParam int available,
                               Model model)
     {
-        model.addAttribute("add", productService.addElectronicToDatabase(company,category,name,price,color,size,available));
+        model.addAttribute("add", productService.addProductToDatabase(company,category,name,price,color,size,available));
         return "redirect:/admin.html";
     }
 

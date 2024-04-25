@@ -39,7 +39,7 @@ public class AddOrderService {
     EmailSender emailSender;
 
 
-    List<Orderline> basketOrderLines = new ArrayList<>();
+    public List<Orderline> basketOrderLines = new ArrayList<>();
     List<Order> basketDetails = new ArrayList<>();
 
     public void addToBasket(int id) {
