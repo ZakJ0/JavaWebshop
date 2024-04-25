@@ -26,7 +26,7 @@ public class OrderController {
         if (addOrderService.getAvailablility(id) != 0) {
             addOrderService.addToBasket(id);
             model.addAttribute("basketItems", addOrderService.getBasketItems());
-            return "order_form";
+            return "basket";
         } else {
             model.addAttribute("products", productService.getAll());
             return "searchresult";
@@ -38,7 +38,7 @@ public class OrderController {
         model.addAttribute("orderp", "");
         model.addAttribute("basketItems", addOrderService.getBasketItems());
         model.addAttribute("price", addOrderService.getTotalCost());
-        return "orderpage";
+        return "orderconfirmationpage";
     }
 
     @PostMapping("/addorder")
@@ -46,11 +46,11 @@ public class OrderController {
         String order = addOrderService.setOrder(username, password);
         if (order.equals("Items were ordered")) {
             model.addAttribute("addorder", order);
-            return "thanks";
+            return "ordermade";
         } else {
             model.addAttribute("basketItems", addOrderService.getBasketItems());
             model.addAttribute("price", addOrderService.getTotalCost());
-            return "orderpage";
+            return "orderconfirmationpage";
         }
     }
 

@@ -24,7 +24,6 @@ public class Order {
 
     public Order(int customerId, Timestamp time, double totalCost, String status) {
         this.customerId = customerId;
-
         this.time = time;
         this.totalCost = totalCost;
         this.status=status;

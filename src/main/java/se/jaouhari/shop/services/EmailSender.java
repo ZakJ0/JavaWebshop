@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
+import se.jaouhari.shop.entities.Orderline;
 import se.jaouhari.shop.entities.User;
 import se.jaouhari.shop.repositories.UserRepo;
 import java.util.Optional;

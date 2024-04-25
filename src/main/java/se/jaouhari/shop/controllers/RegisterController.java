@@ -19,7 +19,7 @@ public class RegisterController {
     @GetMapping("/register")
     public String showRegistrationForm(Model model) {
         model.addAttribute("customer", new User());
-        return "register";
+        return "registeruser";
     }
 
     @PostMapping("/register")
@@ -33,7 +33,7 @@ public class RegisterController {
         String addPerson= userService.saveCustomer(name,lastname,email,adress,username,password);
         model.addAttribute("addPerson",addPerson);
 
-        return "register";
+        return "registeruser";
     }
 }
 

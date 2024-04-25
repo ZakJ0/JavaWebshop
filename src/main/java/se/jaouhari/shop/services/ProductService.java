@@ -37,7 +37,6 @@ public class ProductService {
 
     public String addProductToDatabase(String company, String category, String name, int price, String color, String size, int available) {
         Product product = new Product();
-
         product.setCompany(company);
         product.setCategory(category);
         product.setName(name);
@@ -57,7 +56,6 @@ public class ProductService {
 
     public String removeItem(int productId) {
         List<Product> list = productRepository.findByProductId(productId);
-
         for (Product product : list) {
             if (productId == product.getProductId()) {
                 productRepository.deleteById(productId);

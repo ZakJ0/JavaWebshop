@@ -21,7 +21,6 @@ public class Orderline {
 
     private String status;
 
-
     public Orderline(int ordersId, int customerId, int productId, int amount, int cost, String status) {
         this.ordersId = ordersId;
         this.customerId = customerId;
@@ -32,7 +31,6 @@ public class Orderline {
     }
 
     public Orderline() {
-
     }
 
     public int getCustomerId() {
@@ -91,5 +89,17 @@ public class Orderline {
         this.status = status;
     }
 
+    @Override
+    public String toString() {
+        return "Orderline{" +
+                "orderlineId=" + orderlineId +
+                ", ordersId=" + ordersId +
+                ", customerId=" + customerId +
+                ", productId=" + productId +
+                ", amount=" + amount +
+                ", cost=" + cost +
+                ", status='" + status + '\'' +
+                '}';
+    }
 }
 
