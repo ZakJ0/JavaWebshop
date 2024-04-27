@@ -9,6 +9,7 @@ import java.sql.Timestamp;
 public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
+    @Column(name="id_orderdetails")
     private int orderId;
 
     private int customerId;

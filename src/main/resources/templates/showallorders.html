@@ -48,7 +48,7 @@
     </thead>
     <tbody>
     <tr th:each="order : ${allorderlist}">
-        <td th:text="${order.getIdOrderdetails()}">Order id</td>
+        <td th:text="${order.getOrderId()}">Order id</td>
         <td th:text="${order.getCustomerId()}">Customer id</td>
         <td th:text="${order.getTotalCost()}">Total cost</td>
         <td th:text="${order.getTime()}">Time</td>
