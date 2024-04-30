@@ -100,5 +100,19 @@ public class Product {
     public void setSize(String size) {
         this.size = size;
     }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "productId=" + productId +
+                ", company='" + company + '\'' +
+                ", category='" + category + '\'' +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", color='" + color + '\'' +
+                ", size='" + size + '\'' +
+                ", available=" + available +
+                '}';
+    }
 }
 

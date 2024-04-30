@@ -2,6 +2,7 @@ package se.jaouhari.shop.restcontroller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +11,7 @@ import se.jaouhari.shop.services.ProductService;
 
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class ProductRestController {
@@ -33,6 +35,7 @@ public class ProductRestController {
         productService.savedb(el);
         return "went well";
     }
+
     @PutMapping("/rs/productput/{productId}")
     public String putProduct(@PathVariable(name="productId") int productId, @RequestBody Product el, BindingResult bs) {
         if(bs.hasErrors()){
@@ -48,6 +51,7 @@ public class ProductRestController {
         productService.deleteProduct(productId, el);
         return "Deleted";
     }
+
 
     @ExceptionHandler(Exception.class)
     public void handler(Exception exp){
